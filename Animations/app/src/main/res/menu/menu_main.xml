@@ -57,5 +57,15 @@
         android:orderInCategory="62"
         android:title="@string/moverotatecolor_anim"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/new_action_1"
+        android:orderInCategory="63"
+        android:title="@string/new_anim_1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/new_action_2"
+        android:orderInCategory="64"
+        android:title="@string/new_anim_2"
+        app:showAsAction="never" />
 
 </menu>

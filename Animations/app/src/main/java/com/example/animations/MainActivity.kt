@@ -38,6 +38,16 @@ class MainActivity : AppCompatActivity() {
         val id = item.itemId
 
         when (id) {
+            new_action_1 -> {
+                cb!!.setStyle(ChalkBoard.ACTION_1)
+                return true
+            }
+
+            new_action_2 -> {
+                cb!!.setStyle(ChalkBoard.ACTION_2)
+                return true
+            }
+
             raw_animation -> {
                 cb!!.setStyle(ChalkBoard.RAW)
                 return true
