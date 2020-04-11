@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/colorPickerFragmentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.ColorPickerFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SeekBar
+            android:id="@+id/redSelectorBar"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:contentDescription='"Red"'
+            android:max="255"
+            android:progress="128"
+            android:progressBackgroundTint="#00F18E8E"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/alphaSelectorBar"
+            app:layout_constraintHorizontal_bias="0.422"
+            app:layout_constraintStart_toStartOf="@+id/alphaSelectorBar"
+            app:layout_constraintTop_toBottomOf="@+id/alphaSelectorBar" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Alpha"
+            app:layout_constraintBottom_toTopOf="@+id/redSelectorBar"
+            app:layout_constraintEnd_toStartOf="@+id/alphaSelectorBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/alphaSelectorBar" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Red"
+            app:layout_constraintBottom_toBottomOf="@+id/redSelectorBar"
+            app:layout_constraintEnd_toStartOf="@+id/redSelectorBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/redSelectorBar" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Blue"
+            app:layout_constraintBottom_toBottomOf="@+id/blueSelectorBar"
+            app:layout_constraintEnd_toStartOf="@+id/blueSelectorBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenSelectorBar" />
+
+        <SeekBar
+            android:id="@+id/alphaSelectorBar"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="112dp"
+            android:max="255"
+            android:progress="128"
+            android:progressBackgroundTint="#00F18E8E"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorPickerFragmentSurfaceView" />
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Green"
+            app:layout_constraintBottom_toBottomOf="@+id/greenSelectorBar"
+            app:layout_constraintEnd_toStartOf="@+id/greenSelectorBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/redSelectorBar" />
+
+        <SeekBar
+            android:id="@+id/greenSelectorBar"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:max="255"
+            android:progress="128"
+            app:layout_constraintEnd_toEndOf="@+id/redSelectorBar"
+            app:layout_constraintStart_toStartOf="@+id/redSelectorBar"
+            app:layout_constraintTop_toBottomOf="@+id/redSelectorBar" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="#9C3E3E"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/menu_color_picker"
+            app:title="Color Picker"
+            app:titleMargin="7dp" />
+
+        <SurfaceView
+            android:id="@+id/colorPickerFragmentSurfaceView"
+            android:layout_width="262dp"
+            android:layout_height="231dp"
+            android:layout_marginTop="148dp"
+            android:background="#80808080"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.456"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SeekBar
+            android:id="@+id/blueSelectorBar"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:max="255"
+            android:progress="128"
+            app:layout_constraintEnd_toEndOf="@+id/greenSelectorBar"
+            app:layout_constraintStart_toStartOf="@+id/greenSelectorBar"
+            app:layout_constraintTop_toBottomOf="@+id/greenSelectorBar" />
+
+        <TextView
+            android:layout_width="21dp"
+            android:layout_height="37dp"
+            android:text="#"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/strColor"
+            app:layout_constraintEnd_toStartOf="@+id/strColor"
+            app:layout_constraintTop_toTopOf="@+id/strColor" />
+        <EditText
+            android:id="@+id/strColor"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:background="#555555"
+            android:imeOptions="actionDone"
+            android:maxLength="8"
+            android:padding="5sp"
+            android:text="80808080"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/colorPickerFragmentSurfaceView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
