@@ -1,6 +1,8 @@
 package com.example.cs3013_colorpicker.ui.main
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -100,7 +102,7 @@ class ColorPickerFragment : Fragment(), SeekBar.OnSeekBarChangeListener,MenuItem
     override fun onResume() {
         super.onResume()
         Log.d(TAG,"In OnResume -- $alphaSelectorBar")
-
+        sendBtn.visibility = View.INVISIBLE
 
 
         val tOnMenuItemSelectedListener = Toolbar.OnMenuItemClickListener { item ->
@@ -171,6 +173,8 @@ class ColorPickerFragment : Fragment(), SeekBar.OnSeekBarChangeListener,MenuItem
             colorPickerFragmentSurfaceView.setBackgroundColor(arguments!!.getInt("surfaceViewColor"))
             Log.d(TAG,"in onResume - set colorPickerFragmentSurfaceView ${arguments!!.getInt("surfaceViewColor")}")
         }
+
+       // val info = intent.extras
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

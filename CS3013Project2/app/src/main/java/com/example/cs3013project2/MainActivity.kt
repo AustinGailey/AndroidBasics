@@ -57,8 +57,8 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onButtonInteraction(button: Button) {
-        //val request_code = 0
-        //startActivityForResult(intent, request_code)
+        val request_code = 0
+        startActivityForResult(intent, request_code)
         //val displayFragment: DisplayFragment? = supportFragmentManager.findFragmentById(R.id.displayFragLayout) as DisplayFragment?
         val x = supportFragmentManager.findFragmentByTag("DISPLAY_FRAG")
         val displayFragment = x as DisplayFragment?

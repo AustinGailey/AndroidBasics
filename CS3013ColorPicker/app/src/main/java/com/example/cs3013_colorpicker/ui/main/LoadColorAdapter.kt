@@ -58,12 +58,10 @@ class LoadColorAdapter(private val myDataset: LinkedList<MyColor>,private val on
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var color : MyColor = myDataset[position]
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.colorView.colorText.text = "${myDataset[position].name} : ${myDataset[position].colorHex}"
         holder.colorView.colorSurfaceView.setBackgroundColor(Color.parseColor(myDataset[position].colorHex))
-        //holder.colorView.setOnClickListener{clickListener(color)}
     }
 
     // Return the size of your dataset (invoked by the layout manager)

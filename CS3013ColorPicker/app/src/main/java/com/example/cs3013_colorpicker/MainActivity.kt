@@ -1,21 +1,22 @@
 package com.example.cs3013_colorpicker
 
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.example.cs3013_colorpicker.ui.main.ColorPickerFragment
-import com.example.cs3013_colorpicker.ui.main.LoadColorFragment
-import com.example.cs3013_colorpicker.ui.main.MainFragment
-import com.example.cs3013_colorpicker.ui.main.SaveColorFragment
+import com.example.cs3013_colorpicker.ui.main.*
 import kotlinx.android.synthetic.main.fragment_color_picker.*
 
 class MainActivity : AppCompatActivity(),
     ColorPickerFragment.OnFragmentInteractionListener,
     SaveColorFragment.OnFragmentInteractionListener,
-    LoadColorFragment.OnFragmentInteractionListener {
+    LoadColorFragment.OnFragmentInteractionListener,
+    ColorPickerFragmentWithSend.OnFragmentInteractionListener{
 
     val TAG = "MAIN_ACTIVITY"
 
@@ -30,9 +31,24 @@ class MainActivity : AppCompatActivity(),
 
         //DEFAULT TO COLOR_PICKER_FRAGMENT
         val colorPickerFragment = ColorPickerFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.mainLayout, colorPickerFragment, "COLOR_PICKER_FRAGMENT")
-            .commit()
+        val colorPickerFragmentWithSend = ColorPickerFragmentWithSend()
+        val info = intent.extras
+        if(info != null){
+            if(info.containsKey("Request Code")){
+                Log.d(TAG,"Contains Key")
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.mainLayout, colorPickerFragmentWithSend, "COLOR_PICK_FRAG_W_SEND")
+                    .commit()
+            }else{
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.mainLayout, colorPickerFragment, "COLOR_PICKER_FRAGMENT")
+                    .commit()
+            }
+        }else{
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.mainLayout, colorPickerFragment, "COLOR_PICKER_FRAGMENT")
+                .commit()
+        }
 
     }
 
@@ -110,6 +126,21 @@ class MainActivity : AppCompatActivity(),
         if(fragment is LoadColorFragment) {
             fragment.setOnFragmentInteractionListener(this)
         }
+        if(fragment is ColorPickerFragmentWithSend) {
+            fragment.setOnFragmentInteractionListener(this)
+        }
+    }
+
+    override fun finish() {
+        val colorPickerFragmentWithSend = supportFragmentManager.findFragmentByTag("COLOR_PICK_FRAG_W_SEND") as ColorPickerFragmentWithSend
+        val sendColor = colorPickerFragmentWithSend.sendColor
+        Log.d(TAG,"Sending Color: $sendColor" )
+        val sendIntent = Intent().apply{
+            putExtra("color",sendColor)
+            type = "text/plain"
+        }
+        setResult(Activity.RESULT_OK, sendIntent)
+        super.finish()
     }
 
 }

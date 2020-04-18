@@ -156,7 +156,6 @@ class LoadColorFragment : Fragment(), LoadColorAdapter.OnColorSelectedListener {
     }
 
     override fun onColorSelected(position: Int) {
-        val test = 0
         myColorList[position]
         Log.d(TAG,"in onColorSelected -- $position")
         Log.d(TAG, "in onColorSelected -- new color: ${Color.parseColor(myColorList[position].colorHex)}")

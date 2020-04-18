@@ -67,5 +67,10 @@
         android:orderInCategory="64"
         android:title="@string/new_anim_2"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/get_background_color"
+        android:orderInCategory="65"
+        android:title="@string/get_background_color"
+        app:showAsAction="never" />
 
 </menu>
