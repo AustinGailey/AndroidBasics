@@ -1,7 +1,10 @@
 package com.example.cs3013day4activity
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -32,6 +35,10 @@ class MainActivity : AppCompatActivity() {
             }else{
                 mainLayout.setBackgroundColor(Color.BLUE)
             }
+        }
+
+        backBtn.setOnClickListener {
+            finish()
         }
 
     }
@@ -72,6 +79,14 @@ class MainActivity : AppCompatActivity() {
         val tv = findViewById<TextView>(R.id.textView)
         tv.visibility = View.INVISIBLE
 
+    }
+
+    override fun finish() {
+        val sendIntent = Intent().apply{
+            type = "text/plain"
+        }
+        setResult(Activity.RESULT_OK, sendIntent)
+        super.finish()
     }
 
 
