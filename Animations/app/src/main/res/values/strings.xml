@@ -14,4 +14,5 @@
     <string name="new_anim_1">Bounce and Recolor</string>
     <string name="new_anim_2">Rotate 90</string>
     <string name="get_background_color">Get Background Color</string>
+    <string name="backBtn">Back</string>
 </resources>

@@ -1,7 +1,9 @@
 package com.example.cs3013project2
 
+import android.app.Activity
 import kotlinx.android.synthetic.main.fragment_display.*
 import android.content.Context
+import android.content.Intent
 import android.media.Image
 import android.net.Uri
 import android.os.Bundle
@@ -74,6 +76,10 @@ class DisplayFragment : Fragment() {
         }else{
             imageView.visibility = ImageView.VISIBLE
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     /**

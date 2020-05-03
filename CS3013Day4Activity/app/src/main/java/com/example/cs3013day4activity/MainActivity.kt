@@ -88,6 +88,4 @@ class MainActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, sendIntent)
         super.finish()
     }
-
-
 }

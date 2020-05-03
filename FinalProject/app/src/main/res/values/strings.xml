@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Final Project</string>
     <string name="day4Activity">Day 4 Activity</string>
+    <string name="fragmentsProject">Playing with Fragments</string>
+    <string name="colorPickerBtn">Color Picker</string>
+    <string name="animationsBtn">Animations</string>
+    <string name="flashBtn">Flash Beep Shake</string>
+
 </resources>

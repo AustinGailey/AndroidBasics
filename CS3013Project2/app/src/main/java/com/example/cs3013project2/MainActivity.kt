@@ -1,5 +1,7 @@
 package com.example.cs3013project2
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +29,10 @@ class MainActivity : AppCompatActivity(),
             .replace(R.id.contentMain2Layout, settingsFrag, settingsFrag.tag)
             .replace(R.id.contentMain1Layout, displayFrag, "DISPLAY_FRAG")
             .commit()
+
+        backBtn.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -57,8 +63,6 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onButtonInteraction(button: Button) {
-        val request_code = 0
-        startActivityForResult(intent, request_code)
         //val displayFragment: DisplayFragment? = supportFragmentManager.findFragmentById(R.id.displayFragLayout) as DisplayFragment?
         val x = supportFragmentManager.findFragmentByTag("DISPLAY_FRAG")
         val displayFragment = x as DisplayFragment?
@@ -73,6 +77,14 @@ class MainActivity : AppCompatActivity(),
 
     override fun onDisplayFragmentInteraction(button: Button) {
         
+    }
+
+    override fun finish() {
+        val sendIntent = Intent().apply{
+            type = "text/plain"
+        }
+        setResult(Activity.RESULT_OK, sendIntent)
+        super.finish()
     }
 
 }

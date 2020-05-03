@@ -83,9 +83,19 @@ class MainActivity : AppCompatActivity() {
             connect()
         }
 
+        backBtn.setOnClickListener {
+            finish()
+        }
+
     }
 
-
+    override fun finish() {
+        val sendIntent = Intent().apply{
+            type = "text/plain"
+        }
+        setResult(Activity.RESULT_OK, sendIntent)
+        super.finish()
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

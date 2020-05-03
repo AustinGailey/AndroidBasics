@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             cb!!.wander()                    //when button clicked, do animation in ChalkBoard
         }
+
+        backBtn.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -138,6 +142,13 @@ class MainActivity : AppCompatActivity() {
         }catch (e:Exception){
             Log.d(TAG,"Error: $e")
         }
+    }
 
+    override fun finish() {
+        val sendIntent = Intent().apply{
+            type = "text/plain"
+        }
+        setResult(Activity.RESULT_OK, sendIntent)
+        super.finish()
     }
 }
