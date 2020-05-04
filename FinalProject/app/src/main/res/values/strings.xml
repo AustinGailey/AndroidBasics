@@ -5,5 +5,5 @@
     <string name="colorPickerBtn">Color Picker</string>
     <string name="animationsBtn">Animations</string>
     <string name="flashBtn">Flash Beep Shake</string>
-
+    <string name="msuBtn">MSU Connect</string>
 </resources>

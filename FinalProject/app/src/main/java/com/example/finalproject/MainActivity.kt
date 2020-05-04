@@ -12,6 +12,7 @@ const val DAY_4_ACTIVITY = "com.example.cs3013day4activity.DAY_4_ACTIVITY"
 const val ACTION_COLOR = "com.example.cs3010_colorpicker.ACTION_COLOR"
 const val ANIMATIONS_ACTIVITY = "com.example.animations.ANIMATIONS_ACTIVITY"
 const val FLASH_ACTIVITY = "com.example.flashbeepshake.FLASH_ACTIVITY"
+const val MSU_CONNECT = "com.msu.msuconnect.MSU_CONNECT"
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +59,14 @@ class MainActivity : AppCompatActivity() {
         flashBtn.setOnClickListener {
             val sendIntent = Intent().apply {
                 action = FLASH_ACTIVITY
+                type = "text/plain"
+            }
+            startActivityForResult(sendIntent,0)
+        }
+
+        msuBtn.setOnClickListener {
+            val sendIntent = Intent().apply {
+                action = MSU_CONNECT
                 type = "text/plain"
             }
             startActivityForResult(sendIntent,0)
